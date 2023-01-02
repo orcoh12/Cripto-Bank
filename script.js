@@ -59,7 +59,9 @@ const account2 = {
     '2023-01-01T18:49:59.371Z',
     '2023-01-02T12:01:20.894Z',
   ],
- const account11 = {
+ 
+};
+const account11 = {
   owner: 'Or Cohen',
   username : 'Or',
   movements: [200.45, 450, -400, 3000, -650, -130, 70, 1300],
@@ -75,7 +77,6 @@ const account2 = {
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
   ]
-};
 };
 const account20 = {
   owner: 'Zeev',
@@ -222,7 +223,7 @@ const displayMovements = function (movements, i) {
         <div class="movements__type movements__type--${type}"> ${i + 1}. ${type}
         </div>
         <div class="movements__date">${displayDate}</div>
-        <div class="movements__value">${numberWithCommas(mov)} ฿</div>
+        <div class="movements__value">${numberWithCommas(mov)} $</div>
       </div>`;
 
       containerMovements.insertAdjacentHTML("afterbegin",html);
@@ -242,7 +243,7 @@ const currencies = new Map([
 /// Display Balance ///
 const displayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc , mov) => acc + mov , 0);
-  labelBalance.textContent = `${numberWithCommas((acc.balance).toFixed(2))} ฿`;
+  labelBalance.textContent = `${numberWithCommas((acc.balance).toFixed(2))} $`;
 }
 
 /// Format Money ///
@@ -257,16 +258,16 @@ function numberWithCommas(x) {
 /// Display Summery ///
 const displaySummery = function (movements) {
   const income = numberWithCommas(Math.round(movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov , 0)));
-  labelSumIn.textContent = `${income} ฿`;
+  labelSumIn.textContent = `${income} $`;
 
 
 // const totalWithdrawals = function (movements) {
   const outcome = numberWithCommas(Math.round(movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov , 0)));
-  labelSumOut.textContent = `${outcome} ฿`;
+  labelSumOut.textContent = `${outcome} $`;
 
 
  const interest = movements.filter(mov => mov > 0).map(deposit => (deposit * 1.2) / 100).reduce((acc, int) => acc + int, 0);
- labelSumInterest.textContent = `${Math.round(interest)} ฿`};
+ labelSumInterest.textContent = `${Math.round(interest)} $`};
 
 /// Display User Details ///
 const displayUser = function (user) {
