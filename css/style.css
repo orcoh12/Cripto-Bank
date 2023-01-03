@@ -82,6 +82,23 @@
     outline: none;
     color: #777;
   }
+  .btn_logout {
+    
+    /* font-size: 140%; */
+    background-color: rgb(231, 106, 106);
+    border: none;
+    border: none;
+    font-size: 1.7rem;
+    transition: all 0.3s;
+  }
+  .btn_logout:hover{
+    border: none;
+    color: whitesmoke;    
+    background-color: rgb(233, 29, 29);
+
+  }
+  /* background-color: #9616297f; */
+  
   
   /* MAIN */
   .app {
@@ -98,6 +115,11 @@
     transition: all 1s;
   }
   
+  .dropDown{
+    position: absolute;
+    margin-top: 80px;
+  }
+
   .balance {
     grid-column: 1 / span 2;
     display: flex;
@@ -149,7 +171,7 @@
   
   .movements__date {
     font-size: 1.1rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-weight: 500;
     color: #666;
   }
@@ -161,7 +183,9 @@
   .movements__type--withdrawal {
     background-image: linear-gradient(to top left, #e52a5a, #ff585f);
   }
-  
+  .movements__type--salary {
+    background-image: linear-gradient(to top left, #2a75e5, #58aeff);
+  }
   .movements__value {
     font-size: 1.7rem;
     margin-left: auto;
