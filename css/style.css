@@ -82,6 +82,23 @@
     outline: none;
     color: #777;
   }
+  .btn_logout {
+    
+    /* font-size: 140%; */
+    background-color: rgb(231, 106, 106);
+    border: none;
+    border: none;
+    font-size: 1.7rem;
+    transition: all 0.3s;
+  }
+  .btn_logout:hover{
+    border: none;
+    color: whitesmoke;    
+    background-color: rgb(233, 29, 29);
+
+  }
+  /* background-color: #9616297f; */
+  
   
   /* MAIN */
   .app {
