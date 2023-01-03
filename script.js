@@ -23,7 +23,7 @@
 
 // Data
 
-// Bitcoin $ ฿ 
+// Bitcoin $ $ 
 
 const account1 = {
   owner: 'Or Cohen',
@@ -46,41 +46,6 @@ const account1 = {
 const account2 = {
   owner: 'Zeev',
   username : 'zeev',
-  movements: [ 3400, -150, -790.90, -3210, -1000, 8500 , -30 ,5000 ],
-  interestRate: 1.5,
-  pin: 2222,
-  movementsDates: [
-    '2019-11-01T13:15:33.035Z',
-    '2019-11-30T09:48:16.867Z',
-    '2019-12-25T06:04:23.907Z',
-    '2020-01-25T14:18:46.235Z',
-    '2020-02-05T16:33:06.386Z',
-    '2022-12-31T14:43:26.374Z',
-    '2023-01-01T18:49:59.371Z',
-    '2023-01-02T12:01:20.894Z',
-  ],
- 
-};
-const account11 = {
-  owner: 'Or Cohen',
-  username : 'Or',
-  movements: [200.45, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2, // %
-  pin: 1111,
-  movementsDates: [
-    '2019-11-18T21:31:17.178Z',
-    '2019-12-23T07:42:02.383Z',
-    '2020-01-28T09:15:04.904Z',
-    '2020-04-01T10:17:24.185Z',
-    '2020-05-08T14:11:59.604Z',
-    '2020-05-27T17:01:17.194Z',
-    '2020-07-11T23:36:17.929Z',
-    '2020-07-12T10:51:36.790Z',
-  ]
-};
-const account20 = {
-  owner: 'Zeev',
-  username : 'Zeev',
   movements: [ 3400, -150, -790.90, -3210, -1000, 8500 , -30 ,5000 ],
   interestRate: 1.5,
   pin: 2222,
@@ -136,6 +101,7 @@ const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
+const btnLogout = document.querySelector('.btn_logout');
 
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
@@ -297,6 +263,10 @@ btnLogin.addEventListener('click', function (e) {
     labelWelcome.textContent = `Welcome Back, ${currentAccount.owner.split(' ')[0]}`;
     containerApp.style.opacity = 100;
     displayUser(currentAccount);
+    inputLoginUsername.style.display = "none";
+    inputLoginPin.style.display = "none";
+    btnLogin.style.display = "none";
+    btnLogout.style.display = "block";
     if (timer) clearInterval(timer);
     timer = startTimer();
   }
@@ -345,6 +315,7 @@ btnClose.addEventListener('click',function(e){
   inputCloseUsername.value = inputClosePin.value ='';
   clearInterval(timer);
     timer = startTimer();
+logOut();
 });
 
 /// Loan ///
@@ -402,6 +373,7 @@ const startTimer = function(){
       clearInterval(timer);
       labelWelcome.textContent = 'Log In To Get Started';
       containerApp.style.opacity = 0 ;
+logOut();
     };
     time--;
   };
@@ -411,3 +383,19 @@ const startTimer = function(){
     return timer;
 };
 
+/// Log Out ///
+
+btnLogout.addEventListener('click', function(e){
+  e.preventDefault();
+  logOut();
+});
+
+const logOut = function () {
+  clearInterval(timer);
+      labelWelcome.textContent = 'Log In To Get Started';
+      containerApp.style.opacity = 0 ;
+      inputLoginUsername.style.display = "block";
+      inputLoginPin.style.display = "block";
+      btnLogin.style.display = "block";
+      btnLogout.style.display = "none";
+}
