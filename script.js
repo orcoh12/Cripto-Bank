@@ -163,7 +163,7 @@ const btnLogout = document.querySelector('.btn_logout');
 
 const dateSelector = document.querySelector('.form-select');
 const datePickerFrom = document.querySelector('.datePickerFrom');
-const datePickerTo = = document.querySelector('.datePickerTo');
+const datePickerTo = document.querySelector('.datePickerTo');
 
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
