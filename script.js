@@ -161,6 +161,10 @@ const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
 const btnLogout = document.querySelector('.btn_logout');
 
+const dateSelector = document.querySelector('.form-select');
+const datePickerFrom = document.querySelector('.datePickerFrom');
+const datePickerTo = = document.querySelector('.datePickerTo');
+
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
 const inputTransferTo = document.querySelector('.form__input--to');
@@ -328,15 +332,15 @@ logOut();
 
 /// Default Account Initialize ///
 
-currentAccount = account2;
-displayUser(account2);
-labelWelcome.textContent = `Welcome Back, Default Z`;
-containerApp.style.opacity = 100;
-inputLoginUsername.style.display = "none";
-inputLoginPin.style.display = "none";
-btnLogin.style.display = "none";
-btnLogout.style.display = "block";
-timer = startTimer();
+// currentAccount = account2;
+// displayUser(account2);
+// labelWelcome.textContent = `Welcome Back, Default Z`;
+// containerApp.style.opacity = 100;
+// inputLoginUsername.style.display = "none";
+// inputLoginPin.style.display = "none";
+// btnLogin.style.display = "none";
+// btnLogout.style.display = "block";
+// timer = startTimer();
 
 
 /// LOGIN ///
@@ -472,3 +476,6 @@ const logOut = function () {
       btnLogin.style.display = "block";
       btnLogout.style.display = "none";
 }
+
+/// Date Filter ///
+
