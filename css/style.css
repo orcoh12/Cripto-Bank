@@ -208,8 +208,8 @@
   }
   
   .summary__value {
-    font-size: 2.2rem;
-    margin-right: 2.5rem;
+    font-size: 2.0rem;
+    margin-right: 2.2rem;
   }
   
   .summary__value--in,
@@ -289,7 +289,9 @@
     outline: none;
     background-color: rgba(255, 255, 255, 0.6);
   }
-  
+  /* #btnClearFilter{
+    background-color: #6e5b07;
+  } */
   .form__label {
     font-size: 1.3rem;
     text-align: center;
