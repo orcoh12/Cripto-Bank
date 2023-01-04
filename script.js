@@ -267,7 +267,7 @@ const IsNew = (date_1, date_2) =>{
   let date2 = new Date(date_2);
   let difference = date1.getTime() - date2.getTime();
   let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
-  if(TotalDays < 3)
+  if(TotalDays <= 3)
   return true;
   return false;
 }
