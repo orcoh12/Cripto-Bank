@@ -8,6 +8,13 @@
 //   to : null,
 //   date : null
 // };
+function getDateXDaysAgo(numOfDays, date = new Date()) {
+  const daysAgo = new Date(date.getTime());
+
+  daysAgo.setDate(date.getDate() - numOfDays + 1);
+
+  return daysAgo;
+}
 
 function transaction(amount, from, to, date) {
   this.amount = amount,
@@ -20,79 +27,126 @@ const transaction1 = {
   amount : 9000,
   from : 'Or',
   to : 'Zeev',
-  date : '2019-11-30T09:48:16.867Z'
+  date : getDateXDaysAgo(345)
 };
 
 const transaction2 = {
   amount : 11000,
   from : 'Or',
   to : 'Zeev',
-  date : '2019-11-30T09:48:16.867Z'
+  date : getDateXDaysAgo(298)
 };
 const transaction3 = {
   amount : -5045,
   from : 'Or',
   to : 'Zeev',
-  date : '2023-01-01T09:48:16.867Z'
+  date : getDateXDaysAgo(215)
 };
 
 const transaction4 = {
   amount : 320,
   from : 'Or',
   to : 'Zeev',
-  date : '2023-01-02T09:48:16.867Z'
+  date : getDateXDaysAgo(200)
 };
 const transaction5 = {
   amount : 45,
   from : 'Or',
   to : 'Zeev',
-  date : '2023-01-03T09:48:16.867Z'
+  date : getDateXDaysAgo(158)
 };
 
 const transaction6 = {
   amount : -3900,
   from : 'Or',
   to : 'Zeev',
-  date : '2022-12-31T09:48:16.867Z'
+  date : getDateXDaysAgo(128)
 };
 const transaction7 = {
-  amount : 500,
+  amount : 800,
   from : 'Or',
   to : 'Zeev',
-  date : '2019-11-30T09:48:16.867Z'
+  date : getDateXDaysAgo(113)
 };
 
 const transaction8 = {
   amount : -4500,
   from : 'Or',
   to : 'Zeev',
-  date : '2019-11-30T09:48:16.867Z'
+  date : getDateXDaysAgo(99)
+
 };
 const transaction9 = {
   amount : 670,
   from : 'Or',
   to : 'Zeev',
-  date : '2019-11-30T09:48:16.867Z'
+  date : getDateXDaysAgo(85)
 };
 
 const transaction10 = {
-  amount : -1234,
+  amount : 11900,
   from : 'Or',
   to : 'Zeev',
-  date : '2019-11-30T09:48:16.867Z'
+  date : getDateXDaysAgo(64)
+};
+const transaction11 = {
+  amount : -234,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(49)
+};
+const transaction12 = {
+  amount : 154,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(33)
+};
+const transaction13 = {
+  amount : 34,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(26)
+};
+const transaction14 = {
+  amount : -12,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(15)
+};
+const transaction15 = {
+  amount : -12,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(8)
+};
+const transaction16 = {
+  amount : 95,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(7)
+};
+const transaction17 = {
+  amount : 1350,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(3)
+};
+const transaction18 = {
+  amount : -260,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(1)
+};
+const transaction19 = {
+  amount : -56,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(0)
 };
 
-const transactions = [];
-transactions.push(transaction1);
-transactions.push(transaction2);
-transactions.push(transaction3);
-transactions.push(transaction4);
-transactions.push(transaction5);
-transactions.push(transaction6);
-transactions.push(transaction7);
-transactions.push(transaction8);
-transactions.push(transaction9);
-transactions.push(transaction10);
+// const transactions = [];
+// transactions.push(transaction1);
+
 
 // Data
 
@@ -102,7 +156,7 @@ const account1 = {
   owner: 'Or Cohen',
   username : 'or',
   // movements: [200.45, 450, -400, 3000, -650, -130, 70, 1300],
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19],
   interestRate: 1.2, // %
   pin: 1111,
 
@@ -115,7 +169,7 @@ const account2 = {
   interestRate: 1.5,
   pin: 2222,
 
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19],
 
 };
 
@@ -160,10 +214,11 @@ const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
 const btnLogout = document.querySelector('.btn_logout');
+const btnDateFilter = document.querySelector('#btnDateFilter');
 
-const dateSelector = document.querySelector('.form-select');
-const datePickerFrom = document.querySelector('.datePickerFrom');
-const datePickerTo = document.querySelector('.datePickerTo');
+let dateSelector = document.querySelector('.form-select');
+let datePickerFrom = document.querySelector('#datePickerFrom');
+let datePickerTo = document.querySelector('#datePickerTo');
 
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
@@ -182,8 +237,9 @@ let timer;
 // };
 // 
 // createUsernames(accounts);
-
+// datePickerTo = new Date();
   const now = new Date();
+  datePickerTo = now;
   
 const formatDate = function (date){
   const day = String(date.getDate()).padStart(2, '0');
@@ -204,6 +260,22 @@ labelDate.textContent = `${formatDate(now)}, ${formatHour(now)}`;
   let difference = date_1.getTime() - date_2.getTime();
   let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
   return TotalDays;
+}
+
+const IsNew = (date_1, date_2) =>{
+  let date1 = new Date(date_1);
+  let date2 = new Date(date_2);
+  let difference = date1.getTime() - date2.getTime();
+  let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+  if(TotalDays < 3)
+  return true;
+  return false;
+}
+
+function parseDate(input) {
+  var parts = input.match(/(\d+)/g);
+  // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+  return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
 }
 
 /// Format Transactions Days
@@ -241,16 +313,23 @@ const displayMovements = function (movements, i) {
     containerMovements.innerHTML = '';
 
     movements.forEach(function (mov, i)  {
-        var type = mov.amount > 0 ? 'deposit' : 'withdrawal';
-        // console.log((mov));
-        if (mov.amount > 5000 && mov.amount < 10000)
-          type = 'salary';
+        var type = mov.amount > 0 ? 'deposit' : 'withdrawal';  
+        const newTransHTML = `<div class="movements__type movements__type--new">NEW</div>`;
+        var isNew;
+        if(IsNew(now, mov.date))
+          isNew = newTransHTML;
+          else
+          isNew = '';
+        // console.log(typeof(now), now);
+        
+          // isNew = 'new';
         // currentAccount = account2;
+        // console.log(type);
         const transactionDate = new Date(mov.date);
         const displayDate = dateDisplay(transactionDate); // = `${formatDate(transactionDate)}`
         const html = `<div class="movements__row">
         <div class="movements__type movements__type--${type}"> ${i + 1}. ${type}
-        </div>
+        </div>${isNew}
         <div class="movements__date">${displayDate}</div>
         <div class="movements__value">${numberWithCommas(mov.amount)} $</div>
       </div>`;
@@ -332,15 +411,15 @@ logOut();
 
 /// Default Account Initialize ///
 
-// currentAccount = account2;
-// displayUser(account2);
-// labelWelcome.textContent = `Welcome Back, Default Z`;
-// containerApp.style.opacity = 100;
-// inputLoginUsername.style.display = "none";
-// inputLoginPin.style.display = "none";
-// btnLogin.style.display = "none";
-// btnLogout.style.display = "block";
-// timer = startTimer();
+currentAccount = account2;
+displayUser(account2);
+labelWelcome.textContent = `Welcome Back, Default Z`;
+containerApp.style.opacity = 100;
+inputLoginUsername.style.display = "none";
+inputLoginPin.style.display = "none";
+btnLogin.style.display = "none";
+btnLogout.style.display = "block";
+timer = startTimer();
 
 
 /// LOGIN ///
@@ -479,3 +558,37 @@ const logOut = function () {
 
 /// Date Filter ///
 
+btnDateFilter.addEventListener('click', function(e){
+  console.log(dateSelector.value, datePickerFrom.value, datePickerTo.value);
+  var dayFrom, dayTo;
+
+  if (dateSelector){
+    var monthDate;
+    var month = mow.getMonth();
+    monthDate.setDate(getDate(now));
+    monthDate.setMonth(month);
+    monthDate.setFullYear(now);
+    console.log(monthDate);
+  }
+  if (datePickerFrom && datePickerTo){
+    dayFrom = datePickerFrom.value;
+    dayTo = datePickerTo.value;
+  }
+console.log(dayFrom,dayTo);
+});
+
+
+dateSelector.addEventListener('click', function(e){
+
+  console.log(dateSelector.value);
+  datePickerFrom.value = null;
+  datePickerTo.value = null;
+});
+
+// datePickerFrom.addEventListener('click', function(e){
+//   dateSelector.value = null;
+// });
+
+// datePickerTo.addEventListener('click', function(e){
+//   dateSelector.value = null;
+// });
