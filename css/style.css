@@ -183,7 +183,7 @@
   .movements__type--withdrawal {
     background-image: linear-gradient(to top left, #e52a5a, #ff585f);
   }
-  .movements__type--salary {
+  .movements__type--new {
     background-image: linear-gradient(to top left, #2a75e5, #58aeff);
   }
   .movements__value {
