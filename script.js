@@ -1,13 +1,8 @@
 'use strict';
 
 // BANKIST APP
+let filteredData = null;
 
-// var transaction = {
-//   amount : null,
-//   from : null,
-//   to : null,
-//   date : null
-// };
 function getDateXDaysAgo(numOfDays, date = new Date()) {
   const daysAgo = new Date(date.getTime());
 
@@ -31,20 +26,20 @@ const transaction1 = {
 };
 
 const transaction2 = {
-  amount : 11000,
+  amount : 13407,
   from : 'Or',
   to : 'Zeev',
   date : getDateXDaysAgo(298)
 };
 const transaction3 = {
-  amount : -5045,
+  amount : -6140,
   from : 'Or',
   to : 'Zeev',
   date : getDateXDaysAgo(215)
 };
 
 const transaction4 = {
-  amount : 320,
+  amount : 230,
   from : 'Or',
   to : 'Zeev',
   date : getDateXDaysAgo(200)
@@ -90,13 +85,13 @@ const transaction10 = {
   date : getDateXDaysAgo(64)
 };
 const transaction11 = {
-  amount : -234,
+  amount : -432,
   from : 'Or',
   to : 'Zeev',
   date : getDateXDaysAgo(49)
 };
 const transaction12 = {
-  amount : 154,
+  amount : 514,
   from : 'Or',
   to : 'Zeev',
   date : getDateXDaysAgo(33)
@@ -120,7 +115,7 @@ const transaction15 = {
   date : getDateXDaysAgo(8)
 };
 const transaction16 = {
-  amount : 95,
+  amount : 59,
   from : 'Or',
   to : 'Zeev',
   date : getDateXDaysAgo(7)
@@ -132,7 +127,7 @@ const transaction17 = {
   date : getDateXDaysAgo(3)
 };
 const transaction18 = {
-  amount : -260,
+  amount : -78,
   from : 'Or',
   to : 'Zeev',
   date : getDateXDaysAgo(1)
@@ -143,10 +138,174 @@ const transaction19 = {
   to : 'Zeev',
   date : getDateXDaysAgo(0)
 };
+const transaction21 = {
+  amount : 8500,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(347)
+};
 
-// const transactions = [];
-// transactions.push(transaction1);
+const transaction22 = {
+  amount : 11000,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(291)
+};
+const transaction23 = {
+  amount : -5045,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(275)
+};
 
+const transaction24 = {
+  amount : 320,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(210)
+};
+const transaction25 = {
+  amount : 54,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(188)
+};
+
+const transaction26 = {
+  amount : -2600,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(178)
+};
+const transaction27 = {
+  amount : 750,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(133)
+};
+
+const transaction28 = {
+  amount : -7850,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(91)
+
+};
+const transaction29 = {
+  amount : 570,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(80)
+};
+
+const transaction210 = {
+  amount : 2900,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(54)
+};
+const transaction211 = {
+  amount : -234,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(43)
+};
+const transaction212 = {
+  amount : 154,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(23)
+};
+const transaction213 = {
+  amount : 43,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(20)
+};
+const transaction214 = {
+  amount : -122,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(19)
+};
+const transaction215 = {
+  amount : -21,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(17)
+};
+const transaction216 = {
+  amount : 95,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(15)
+};
+const transaction217 = {
+  amount : 1650,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(14)
+};
+const transaction218 = {
+  amount : -260,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(13)
+};
+const transaction219 = {
+  amount : -166,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(325)
+};
+const transaction220 = {
+  amount : -45,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(315)
+};
+const transaction221 = {
+  amount : 550,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(225)
+};
+const transaction222 = {
+  amount : -95,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(240)
+};
+const transaction224 = {
+  amount : -613,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(256)
+};
+const transaction225 = {
+  amount : 576,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(261)
+};
+const transaction226 = {
+  amount : -35,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(246)
+};
+const transaction227 = {
+  amount : 155,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(235)
+};
+const transaction228 = {
+  amount : -11735,
+  from : 'Or',
+  to : 'Zeev',
+  date : getDateXDaysAgo(323)
+};
 
 // Data
 
@@ -156,7 +315,7 @@ const account1 = {
   owner: 'Or Cohen',
   username : 'or',
   // movements: [200.45, 450, -400, 3000, -650, -130, 70, 1300],
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19, transaction21, transaction22, transaction23, transaction24, transaction25, transaction26, transaction27, transaction28, transaction29, transaction210, transaction211, transaction212, transaction213, transaction214, transaction215, transaction216, transaction217, transaction218, transaction219, transaction220, transaction221, transaction222, transaction224, transaction225, transaction226, transaction227,transaction228 ],
   interestRate: 1.2, // %
   pin: 1111,
 
@@ -169,7 +328,7 @@ const account2 = {
   interestRate: 1.5,
   pin: 2222,
 
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19, transaction21, transaction22, transaction23, transaction24, transaction25, transaction26, transaction27, transaction28, transaction29, transaction210, transaction211, transaction212, transaction213, transaction214, transaction215, transaction216, transaction217, transaction218, transaction219, transaction220, transaction221, transaction222, transaction224, transaction225, transaction226, transaction227,transaction228 ],
 
 };
 
@@ -215,6 +374,7 @@ const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
 const btnLogout = document.querySelector('.btn_logout');
 const btnDateFilter = document.querySelector('#btnDateFilter');
+const btnClearFilter = document.querySelector('#btnClearFilter');
 
 let dateSelector = document.querySelector('.form-select');
 let datePickerFrom = document.querySelector('#datePickerFrom');
@@ -230,16 +390,9 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 let timer;
 /// Date //
-// const createUsernames = function (accs) {
-//   accs.forEach(function (acc) {
-//       acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join(''); 
-//   });
-// };
-// 
-// createUsernames(accounts);
-// datePickerTo = new Date();
+
   const now = new Date();
-  datePickerTo = now;
+  // datePickerTo = now;
   
 const formatDate = function (date){
   const day = String(date.getDate()).padStart(2, '0');
@@ -320,11 +473,7 @@ const displayMovements = function (movements, i) {
           isNew = newTransHTML;
           else
           isNew = '';
-        // console.log(typeof(now), now);
-        
-          // isNew = 'new';
-        // currentAccount = account2;
-        // console.log(type);
+
         const transactionDate = new Date(mov.date);
         const displayDate = dateDisplay(transactionDate); // = `${formatDate(transactionDate)}`
         const html = `<div class="movements__row">
@@ -370,19 +519,19 @@ const displaySummery = function (movements) {
   labelSumIn.textContent = `${income} $`;
 
 
-// const totalWithdrawals = function (movements) {
   const outcome = numberWithCommas(Math.round(movements.filter(mov => mov.amount < 0).reduce((acc, mov) => acc + mov.amount , 0)));
   labelSumOut.textContent = `${outcome} $`;
 
 
  const interest = movements.filter(mov => mov.amount > 0).map(deposit => (deposit * 1.2) / 100).reduce((acc, int) => acc + int, 0);
-//  labelSumInterest.textContent = `${Math.round(inter)} $`;
  labelSumInterest.textContent = `${167.5} $`;
 }
 /// Display User Details ///
 const displayUser = function (user) {
   displayBalance(user);
-  displayMovements(user.movements);
+  const sortedByDate = user.movements.slice().sort((a, b) => a.date - b.date);
+  displayMovements(sortedByDate);
+  // displayMovements(user.movements);
   displaySummery(user.movements);
   inputLoginUsername.value = inputLoginPin.value = '';
   inputLoginPin.blur();
@@ -513,7 +662,7 @@ btnLoan.addEventListener('click', function(e){
 let flag = "accending";
 btnSort.addEventListener('click', function(e){
   e.preventDefault();
-  
+
   if (flag === "accending") {
     const sortedAccending = currentAccount.movements.slice().sort((a, b) => a.amount - b.amount);
     console.log(sortedAccending);
@@ -529,8 +678,9 @@ btnSort.addEventListener('click', function(e){
 
   }
   else {
+    const sortedByDate = currentAccount.movements.slice().sort((a, b) => a.date - b.date);
     flag = "accending";
-    displayMovements(currentAccount.movements);
+    displayMovements(sortedByDate);
     btnSort.textContent = 'Sorted By: \n⬇ Date';
   };
   clearInterval(timer);
@@ -557,38 +707,75 @@ const logOut = function () {
 }
 
 /// Date Filter ///
+let selectedDate;
+const isCurrentYear = function(date){
+  const month = date.getMonth() + 1;
+  if( now.getMonth() < date.getMonth())
+  return false;
+  else 
+  return true;
+};
 
+function filter(mov) {
+  if (isCurrentYear(mov.date)){
+    return ((mov.date).getMonth() + 1 == selectedDate && (mov.date).getFullYear() ==  now.getFullYear());
+  }
+    else
+    return ((mov.date).getMonth() + 1 == selectedDate && (mov.date).getFullYear() ==  now.getFullYear() - 1);
+  };
+
+  function filterRange(mov) {
+    
+    const dateFrom = new Date(datePickerFrom.value);
+    const dateTo = new Date (datePickerTo.value);
+    const date = new Date(mov.date);
+    console.log( mov.date - dateFrom);
+    return ((date.getTime() >= dateFrom.getTime()) && (date.getTime() <= dateTo.getTime()));
+  
+    };
+
+
+  /// FILTER BOTTON /// 
 btnDateFilter.addEventListener('click', function(e){
-  console.log(dateSelector.value, datePickerFrom.value, datePickerTo.value);
   var dayFrom, dayTo;
+  
 
-  if (dateSelector){
-    var monthDate;
-    var month = mow.getMonth();
-    monthDate.setDate(getDate(now));
-    monthDate.setMonth(month);
-    monthDate.setFullYear(now);
-    console.log(monthDate);
+  if (dateSelector.value){
+    selectedDate = dateSelector.value;
+    
+    filteredData = currentAccount.movements.filter(filter)//(mov => (mov.date).getMonth() + 1 == selectedDate && isCurrentYear(mov.date));
+    displayMovements(filteredData);
+    document.querySelector('.btn--sort').style.display = "none"; 
   }
-  if (datePickerFrom && datePickerTo){
-    dayFrom = datePickerFrom.value;
-    dayTo = datePickerTo.value;
+  else if (datePickerFrom.value && datePickerTo.value){
+    console.log("Reach");
+    const dateFrom = datePickerFrom.value;
+    const dateTo = datePickerTo.value;
+    filteredData = currentAccount.movements.filter(filterRange);
+    console.log(filteredData);
+    displayMovements(filteredData);
+    document.querySelector('.btn--sort').style.display = "none"; 
   }
-console.log(dayFrom,dayTo);
+  console.log(selectedDate);
 });
 
 
 dateSelector.addEventListener('click', function(e){
-
-  console.log(dateSelector.value);
   datePickerFrom.value = null;
   datePickerTo.value = null;
 });
 
-// datePickerFrom.addEventListener('click', function(e){
-//   dateSelector.value = null;
-// });
+datePickerFrom.addEventListener('click', function(e){
+  dateSelector.value = null;
+});
 
-// datePickerTo.addEventListener('click', function(e){
-//   dateSelector.value = null;
-// });
+datePickerTo.addEventListener('click', function(e){
+  dateSelector.value = null;
+});
+// May Feb
+
+btnClearFilter.addEventListener('click', function(e){
+  document.querySelector('.btn--sort').style.display = "block";
+  const sortedByDate = currentAccount.movements.slice().sort((a, b) => a.date - b.date);
+  displayMovements(sortedByDate);
+});
