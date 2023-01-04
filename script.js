@@ -164,7 +164,7 @@ const account1 = {
 
 const account2 = {
   owner: 'Zeev',
-  username : 'zeev',
+  username : 'user',
   movements: [ 3400, -150, -790.90, -3210, -1000, 8500 , -30 ,5000 ],
   interestRate: 1.5,
   pin: 2222,
@@ -411,15 +411,15 @@ logOut();
 
 /// Default Account Initialize ///
 
-currentAccount = account2;
-displayUser(account2);
-labelWelcome.textContent = `Welcome Back, Default Z`;
-containerApp.style.opacity = 100;
-inputLoginUsername.style.display = "none";
-inputLoginPin.style.display = "none";
-btnLogin.style.display = "none";
-btnLogout.style.display = "block";
-timer = startTimer();
+// currentAccount = account2;
+// displayUser(account2);
+// labelWelcome.textContent = `Welcome Back, Default Z`;
+// containerApp.style.opacity = 100;
+// inputLoginUsername.style.display = "none";
+// inputLoginPin.style.display = "none";
+// btnLogin.style.display = "none";
+// btnLogout.style.display = "block";
+// timer = startTimer();
 
 
 /// LOGIN ///
