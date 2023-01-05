@@ -6,7 +6,7 @@ let filteredData = null;
 function getDateXDaysAgo(numOfDays, date = new Date()) {
   const daysAgo = new Date(date.getTime());
 
-  daysAgo.setDate(date.getDate() - numOfDays + 1);
+  daysAgo.setDate(date.getDate() - numOfDays);
 
   return daysAgo;
 }
@@ -112,7 +112,7 @@ const transaction15 = {
   amount : -12,
   from : 'Or',
   to : 'Zeev',
-  date : getDateXDaysAgo(8)
+  date : getDateXDaysAgo(9)
 };
 const transaction16 = {
   amount : 59,
@@ -138,6 +138,7 @@ const transaction19 = {
   to : 'Zeev',
   date : getDateXDaysAgo(0)
 };
+console.log(`TRANS: ${transaction19.date}`);
 const transaction21 = {
   amount : 8500,
   from : 'Or',
@@ -315,7 +316,12 @@ const account1 = {
   owner: 'Or Cohen',
   username : 'or',
   // movements: [200.45, 450, -400, 3000, -650, -130, 70, 1300],
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19, transaction21, transaction22, transaction23, transaction24, transaction25, transaction26, transaction27, transaction28, transaction29, transaction210, transaction211, transaction212, transaction213, transaction214, transaction215, transaction216, transaction217, transaction218, transaction219, transaction220, transaction221, transaction222, transaction224, transaction225, transaction226, transaction227,transaction228 ],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8,
+     transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17,
+      transaction18, transaction19, transaction21, transaction22, transaction23, transaction24, transaction25, transaction26, transaction27,
+       transaction28, transaction29, transaction210, transaction211, transaction212, transaction213, transaction214, transaction215,
+        transaction216, transaction217, transaction218, transaction219, transaction220, transaction221, transaction222, transaction224,
+         transaction225, transaction226, transaction227,transaction228 ],
   interestRate: 1.2, // %
   pin: 1111,
 
@@ -328,7 +334,12 @@ const account2 = {
   interestRate: 1.5,
   pin: 2222,
 
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17, transaction18, transaction19, transaction21, transaction22, transaction23, transaction24, transaction25, transaction26, transaction27, transaction28, transaction29, transaction210, transaction211, transaction212, transaction213, transaction214, transaction215, transaction216, transaction217, transaction218, transaction219, transaction220, transaction221, transaction222, transaction224, transaction225, transaction226, transaction227,transaction228 ],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8,
+     transaction9, transaction10, transaction11, transaction12, transaction13, transaction14, transaction15, transaction16, transaction17,
+      transaction18, transaction19, transaction21, transaction22, transaction23, transaction24, transaction25, transaction26, transaction27,
+       transaction28, transaction29, transaction210, transaction211, transaction212, transaction213, transaction214, transaction215,
+        transaction216, transaction217, transaction218, transaction219, transaction220, transaction221, transaction222, transaction224,
+         transaction225, transaction226, transaction227,transaction228 ],
 
 };
 
@@ -336,7 +347,8 @@ const account3 = {
   owner: 'Steven Thomas Williams',
   username : '',
   // movements: [200, -200, 340, -300, -20, 50, 400, -460],
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8,
+     transaction9, transaction10],
 
   interestRate: 0.7,
   pin: 3333,
@@ -346,7 +358,8 @@ const account4 = {
   owner: 'Sarah Smith',
   username : '',
   // movements: [430, 1000, 700, 50, 90],
-  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8, transaction9, transaction10],
+  movements: [transaction1 , transaction2, transaction3, transaction4, transaction5, transaction6, transaction7, transaction8,
+     transaction9, transaction10],
 
   interestRate: 1,
   pin: 4444,
@@ -412,7 +425,7 @@ labelDate.textContent = `${formatDate(now)}, ${formatHour(now)}`;
  const CalcDays = (date_1, date_2) =>{
   let difference = date_1.getTime() - date_2.getTime();
   let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
-  return TotalDays;
+  return TotalDays - 1;
 }
 
 const IsNew = (date_1, date_2) =>{
@@ -420,7 +433,7 @@ const IsNew = (date_1, date_2) =>{
   let date2 = new Date(date_2);
   let difference = date1.getTime() - date2.getTime();
   let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
-  if(TotalDays <= 3)
+  if(TotalDays <= 4)
   return true;
   return false;
 }
@@ -435,7 +448,7 @@ function parseDate(input) {
 const dateDisplay = function(date){
   const now = new Date;
   const daysPassed = CalcDays(now , date)//(now, date) => {Math.round(Math.abs(now - date) / (1000 * 60 * 60 * 24))};
-  if (daysPassed <= 0){
+  if (daysPassed === 0){
     return 'Today'
   }
   else if (daysPassed === 1){
@@ -560,15 +573,15 @@ logOut();
 
 /// Default Account Initialize ///
 
-// currentAccount = account2;
-// displayUser(account2);
-// labelWelcome.textContent = `Welcome Back, Default Z`;
-// containerApp.style.opacity = 100;
-// inputLoginUsername.style.display = "none";
-// inputLoginPin.style.display = "none";
-// btnLogin.style.display = "none";
-// btnLogout.style.display = "block";
-// timer = startTimer();
+currentAccount = account2;
+displayUser(account2);
+labelWelcome.textContent = `Welcome Back, Default Z`;
+containerApp.style.opacity = 100;
+inputLoginUsername.style.display = "none";
+inputLoginPin.style.display = "none";
+btnLogin.style.display = "none";
+btnLogout.style.display = "block";
+timer = startTimer();
 
 
 /// LOGIN ///
@@ -606,7 +619,7 @@ btnTransfer.addEventListener('click', function(e){
     console.log("Valid");
     const date = new Date();
     date.setMonth(date.getMonth());
-    const tomorrow = date.setDate(date.getDate() + 1)
+    // const today = date.setDate(date.getDate())
 
     var newSenderTransaction = new transaction (-amount,currentAccount.owner ,reciever.owner ,date);
     var newRecieverTransaction = new transaction (amount,reciever.owner ,currentAccount.owner ,date);
@@ -641,13 +654,14 @@ logOut();
 
 /// Loan ///
 btnLoan.addEventListener('click', function(e){
+  // dateSelector.value = null;
   e.preventDefault();
   
   const amount = Number(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov.amount >= amount * 0.1)) {
     const date = new Date();
-    const tomorrow = date.setDate(date.getDate() + 1)
+    const today = date.setDate(date.getDate())
     // currentAccount.movementsDates.push(date);
     var newLoan = new transaction (amount,'Bank',currentAccount.owner,date);
     currentAccount.movements.push(newLoan);
@@ -709,8 +723,9 @@ const logOut = function () {
 /// Date Filter ///
 let selectedDate;
 const isCurrentYear = function(date){
-  const month = date.getMonth() + 1;
-  if( now.getMonth() < date.getMonth())
+  // const month = date.getMonth() + 1;
+  const recievedDate = new Date(date);
+  if( now.getMonth() < recievedDate.getMonth())
   return false;
   else 
   return true;
@@ -724,21 +739,56 @@ function filter(mov) {
     return ((mov.date).getMonth() + 1 == selectedDate && (mov.date).getFullYear() ==  now.getFullYear() - 1);
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//const tomorrow = date.setDate(date.getDate() + 1)
   function filterRange(mov) {
     
     const dateFrom = new Date(datePickerFrom.value);
-    const dateTo = new Date (datePickerTo.value);
+    const dateTo = new Date(datePickerTo.value);
     const date = new Date(mov.date);
-    console.log( mov.date - dateFrom);
-    return ((date.getTime() >= dateFrom.getTime()) && (date.getTime() <= dateTo.getTime()));
+    // Need to fix Day To is +1 (except Today)
+    return (CalcDays(date , dateFrom) >= 0 && CalcDays(dateTo, date) + 1  >= 0); 
   
     };
 
 
+
+
+
+
+
   /// FILTER BOTTON /// 
 btnDateFilter.addEventListener('click', function(e){
-  var dayFrom, dayTo;
-  
+  // var dayFrom, dayTo;
+  e.preventDefault();
+  if (timer) clearInterval(timer);
+  timer = startTimer();
 
   if (dateSelector.value){
     selectedDate = dateSelector.value;
@@ -760,6 +810,16 @@ btnDateFilter.addEventListener('click', function(e){
 });
 
 
+
+
+
+
+
+
+
+
+
+
 dateSelector.addEventListener('click', function(e){
   datePickerFrom.value = null;
   datePickerTo.value = null;
@@ -775,6 +835,9 @@ datePickerTo.addEventListener('click', function(e){
 // May Feb
 
 btnClearFilter.addEventListener('click', function(e){
+  e.preventDefault();
+  if (timer) clearInterval(timer);
+  timer = startTimer();
   document.querySelector('.btn--sort').style.display = "block";
   const sortedByDate = currentAccount.movements.slice().sort((a, b) => a.date - b.date);
   displayMovements(sortedByDate);
