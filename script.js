@@ -328,7 +328,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Zeev',
+  owner: 'Shir Golan',
   username : 'user',
   movements: [ 3400, -150, -790.90, -3210, -1000, 8500 , -30 ,5000 ],
   interestRate: 1.5,
