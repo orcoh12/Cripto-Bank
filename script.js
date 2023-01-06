@@ -815,11 +815,6 @@ btnDateFilter.addEventListener('click', function(e){
 
 
 
-
-
-
-
-
 dateSelector.addEventListener('click', function(e){
   datePickerFrom.value = null;
   datePickerTo.value = null;
@@ -836,6 +831,11 @@ datePickerTo.addEventListener('click', function(e){
 
 btnClearFilter.addEventListener('click', function(e){
   e.preventDefault();
+
+dateSelector.value = null;
+datePickerFrom.value = null;
+  datePickerTo.value = null;
+
   if (timer) clearInterval(timer);
   timer = startTimer();
   document.querySelector('.btn--sort').style.display = "block";
